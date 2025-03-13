@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importante</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: azure;
+            text-align: center;
+        }
+        .carta {
+            width: 300px;
+            height: 200px;
+            background: #ffebcd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .contenido {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .imagenes {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .imagenes img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .mensaje {
+            display: none;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid black;
+            font-size: 22px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d35400;
+            width: 0;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .mostrar {
+            display: block;
+        }
+        @keyframes escribir {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta" onclick="abrirCarta()">Haz clic para abrir</div>
+    <div class="contenido" id="contenido">
+        <div class="imagenes">
+            <img src="ima1.jpg" alt="Nosotros">
+            <img src="ima2.jpg" alt="Nosotros">
+        </div>
+        <p class="mensaje" id="mensaje">Te amo con todo mi corazón ❤️<br><br>Gracias por compartir tantos hermosos momentos conmigo<br><br>Una de las primeras fotos y una de las ultimas.<br><br> TE AMO FLACA.</p>
+    </div>
+    <script>
+        function abrirCarta() {
+            document.querySelector('.carta').style.display = 'none';
+            let contenido = document.getElementById('contenido');
+            contenido.classList.add('mostrar');
+            setTimeout(() => {
+                let mensaje = document.getElementById('mensaje');
+                mensaje.style.display = 'block';
+                mensaje.style.animation = 'escribir 4s steps(40, end) forwards';
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
